@@ -14,6 +14,8 @@ def launchAndWait(path):
     from_dir = os.path.dirname(path)
     if sys.platform == 'darwin':
         subprocess.call(["open", path, "-W"])
+    elif sys.platform == 'linux':
+        subprocess.call(["java", "-jar", path], cwd=from_dir)
     else:
         subprocess.call(path, cwd = from_dir)
 
